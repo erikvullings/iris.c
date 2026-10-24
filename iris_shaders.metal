@@ -2414,6 +2414,7 @@ kernel void rms_norm_gated_add(
     for (int i = tid; i < hidden; i += threads) {
         out_row[i] += gate[i] * (proj_row[i] * rms_inv * weight[i]);
     }
+}
 
 /* Convert bf16 to f16 for MPS compatibility.
  * bf16: sign(1) + exp(8) + mant(7)
